@@ -7,23 +7,44 @@
     <title>Choco_afro_editor</title>
     <style>
       body {
-        font-family: "inter";
+        font-family: Arial, sans-serif;
         text-align: center;
-        background-color: #fef902;
+        background-color: #f2ee01;
+        padding: 0;
+        margin: 0;
       }
+
       h1 {
-        font-size: 3rem;
         margin-top: 0;
+        margin-bottom: 0;
         text-transform: uppercase;
+        font-size: 27px;
         line-height: 1.5em;
       }
 
-      img {
+      @media only screen and (min-width: 22em) {
+        h1 {
+          font-size: 32px;
+        }
+      }
+
+      svg {
         width: 100%;
       }
-      .mark {
-        width: 20rem;
+
+      .wrapper {
+        border: 4px solid rgb(114, 95, 0);
         margin: 0 auto;
+        max-width: 400px;
+        background-color: #fef902;
+        margin-top: 2rem;
+      }
+
+      .image {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        margin-bottom: 1rem;
       }
 
       .btn {
@@ -32,35 +53,62 @@
         letter-spacing: normal;
         padding: 1.7em 3em;
         border-radius: 1em;
-        background-color: #6565ff;
-        color: white;
+        background-color: rgb(109, 109, 255);
+        /* border: 3px solid black; */
+        color: rgb(255, 255, 255);
         display: inline-block;
+        transition: all 0.3s;
+        cursor: pointer;
+        box-shadow: 0px 0px 20px -10px black;
+        text-decoration: none;
       }
 
-      .canvas {
-        margin: 0 auto;
-        max-width: 500px;
-        background-color: #fef902;
-        box-shadow: 0px 0px 30px -10px black;
+      .btn:hover {
+        transform: translateY(-10px);
       }
 
       .p-2 {
-        padding: 2rem;
+        padding: 1.5rem;
       }
     </style>
   </head>
   <body>
     <section>
-      <div class="canvas p-2">
-        <div class="mark">
-          <img src="./fun.png" alt="" />
+      <div class="wrapper">
+        <div id="canvas" class="canvas p-2">
+          <div class="image">
+            <!-- <img src="./fun.png" alt="" /> -->
+
+            <svg
+              width="270"
+              height="233"
+              viewBox="0 0 270 233"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M109.319 14.5248C120.988 -4.79737 149.012 -4.79731 160.68 14.5249L265.134 187.492C277.209 207.486 262.811 233 239.454 233H30.5461C7.18891 233 -7.20881 207.486 4.86556 187.492L109.319 14.5248Z"
+                fill="black"
+              />
+              <path
+                d="M147.913 72H121.027L123.444 159.119H145.556L147.913 72ZM134.5 198C142.233 198 148.94 191.5 149 183.419C148.94 175.461 142.233 168.96 134.5 168.96C126.525 168.96 119.94 175.461 120 183.419C119.94 191.5 126.525 198 134.5 198Z"
+                fill="#FEF902"
+              />
+            </svg>
+          </div>
+          <h1 id="contenteditable" contenteditable="true">
+            Zde napiš svoje prohlášení
+          </h1>
         </div>
-        <h1 contenteditable="true">Napiš zde svoje prohlášení</h1>
       </div>
     </section>
 
     <section class="p-2">
-      <span class="btn">Uložit obrázek</span>
+      <a id="download-button" class="btn" download="upozorneni" target="_blank"
+        >Uložit obrázek</a
+      >
     </section>
+
+    <script src="./dist/bundle.js"></script>
   </body>
 </html>

@@ -1,0 +1,20 @@
+{
+  "name": "choco_afro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/SimonBarak/choco_afro.git",
+  "author": "Šimon Bařák <barak.simon.as@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dom-to-image": "^2.6.0",
+    "html2canvas": "^1.0.0-rc.7",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "prod": "NODE_ENV=production webpack",
+    "dev": "NODE_ENV=development webpack --watch",
+    "start": "NODE_ENV=development webpack --watch webpack-dev-server"
+  }
+}
