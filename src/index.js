@@ -2,27 +2,34 @@ import html2canvas from "html2canvas";
 
 const canvasEl = document.getElementById("canvas");
 
-const buttonEl = document.getElementById("download-button");
+const bodyEl = document.getElementById("body");
+
+const buttonEl = document.getElementById("create-image");
 
 const contenteditableEl = document.getElementById("contenteditable");
 
 const imageEl = document.getElementById("finalImage");
-const popUpEl = document.getElementById("pop-up");
+const editorEl = document.getElementById("editor");
 const finalImageContentEl = document.getElementById("finalImageContent");
 
 const prepareImage = () => {
   html2canvas(canvasEl).then((canvas) => {
     var dataURL = canvas.toDataURL("image/jpeg");
 
-    buttonEl.href = dataURL;
+    // buttonEl.href = dataURL;
 
     finalImageContentEl.src = dataURL;
 
-    popUpEl.classList.add("active");
+    bodyEl.classList.add("image-is-generated");
+    console.log(editorEl);
+
+    editorEl.addEventListener("click", () => {
+      console.log("hello");
+      bodyEl.classList.remove("image-is-generated");
+      editorEl.removeEventListener("click");
+    });
   });
 };
-
-contenteditableEl.addEventListener("input", () => {});
 
 buttonEl.addEventListener("click", () => {
   prepareImage();
@@ -31,5 +38,6 @@ buttonEl.addEventListener("click", () => {
 //prepareImage();
 
 setTimeout(function () {
+  console.log("contenteditableEl");
   contenteditableEl.focus();
-}, 500);
+}, 200);
