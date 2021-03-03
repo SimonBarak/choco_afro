@@ -23,10 +23,9 @@ const prepareImage = () => {
     bodyEl.classList.add("image-is-generated");
     console.log(editorEl);
 
-    editorEl.addEventListener("click", () => {
-      console.log("hello");
+    bodyEl.addEventListener("click", () => {
       bodyEl.classList.remove("image-is-generated");
-      editorEl.removeEventListener("click");
+      bodyEl.removeEventListener("click", () => {});
     });
   });
 };
