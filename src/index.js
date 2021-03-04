@@ -13,6 +13,11 @@ const editorEl = document.getElementById("editor");
 const finalImageContentEl = document.getElementById("finalImageContent");
 
 const prepareImage = () => {
+  window.scroll({
+    top: 0,
+    left: 0,
+  });
+
   html2canvas(canvasEl).then((canvas) => {
     var dataURL = canvas.toDataURL("image/jpeg");
 
